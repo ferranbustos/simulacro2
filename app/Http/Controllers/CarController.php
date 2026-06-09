@@ -19,7 +19,7 @@ class CarController extends Controller
         $cars_latest = Car::latest();
 
         if (Auth::guard('admin')->check()) {
-            $cars = $cars_latest->orderBy('daily_rate')->paginate(20);
+            $cars = $cars_latest->orderBy('brand')->paginate(20);
             return view('admin.cars', compact('cars'));
         }
 
